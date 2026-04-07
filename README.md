@@ -44,7 +44,7 @@ streamlit run app.py
 
 ## Live Demo
 
-(Add your deployed link here after deployment)
+App Link : https://ml-classification-web-app-shivam.streamlit.app
 
 ## Author
 
