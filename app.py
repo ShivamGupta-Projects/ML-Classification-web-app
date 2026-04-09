@@ -16,6 +16,26 @@ from pipeline import run_pipeline
 
 st.title("ML Classification Web App")
 
+st.info("""
+
+This application is designed for Credit Card Fraud Detection datasets.
+
+Ensure the following before uploading:
+
+- CSV file format only
+- Target column must be binary (0/1)
+- Dataset should contain only numeric features (no text columns)
+- Minimum 50 records recommended for better model performance
+- No missing or invalid values (handle before uploading)
+
+Limitations:
+- The model assumes clean and preprocessed data
+- Unexpected columns or formats may cause errors
+
+For best results, use structured fraud datasets similar to training data.
+
+""")
+
 file = st.file_uploader("Upload CSV File")
 
 if file is not None:
