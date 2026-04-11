@@ -119,6 +119,19 @@ if file is not None:
                     pass
 
             model = result["best_model"]
+
+            for col in input_df.columns:
+                try:
+                     input_df[col] = pd.to_numeric(input_df[col])
+                except:
+                     pass
+
+            input_df = pd.get_dummies(input_df)
+
+            train_cols = model.feature_names_in_
+
+            input_df = input_df.reindex(columns=train_cols, fill_value=0)
+            
             pred = model.predict(input_df)[0]
 
             if pred == 1:
