@@ -103,3 +103,29 @@ if file is not None:
 
         for key,value in counts.items():
           st.write(f"{key}: {value}")
+    st.subheader("Predict Fraud for New Transaction")
+
+    input_data = {}
+
+    for col in df.columns:
+       if col == result["target"]:
+          continue
+       input_data[col] = st.text_input(f"Enter {col}")
+
+    if st.button("Predict Fraud", key="fraud_btn"):
+
+       input_df = pd.DataFrame([input_data])
+
+       for col in input_df.columns:
+           try:
+              input_df[col] = pd.to_numeric(input_df[col])
+           except:
+              pass
+
+       model = result["best_model"]
+       pred = model.predict(input_df)[0]
+
+       if pred == 1:
+          st.error("🚨 Fraud Detected")
+       else:
+          st.success("✅ Non-Fraud Transaction")
