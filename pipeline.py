@@ -293,6 +293,7 @@ def run_pipeline(df, target_col):
 
     return {
         "best_model_name": best_model_name,
+        "best_model": best_model,
         "target": target_col,
         "shape": df.shape,
         "missing": df.isna().sum(),
