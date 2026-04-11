@@ -99,7 +99,7 @@ if file is not None:
         for key, value in result["target_counts"].items():
             st.write(f"{key}: {value}")
 
-        st.subheader("🔍 Predict Fraud for New Transaction")
+        st.subheader("Predict Fraud for New Transaction")
 
         input_data = {}
 
